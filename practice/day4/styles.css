@@ -1,0 +1,139 @@
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Colours as variables (light theme) ---------- */
+:root {
+  --bg: #f3f4f6;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #d1d5db;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --button-text: #ffffff;
+  --warning: #d97706; /* orange */
+  --over: #dc2626; /* red */
+}
+
+/* ---------- Dark theme: only redefines the variables ---------- */
+body.dark {
+  --bg: #111827;
+  --card: #1f2937;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --border: #4b5563;
+  --primary: #818cf8;
+  --primary-hover: #a5b4fc;
+  --button-text: #111827;
+  --warning: #fb923c;
+  --over: #f87171;
+}
+
+/* ---------- Layout ---------- */
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+section {
+  padding: 1.5rem;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font: inherit;
+  color: var(--text);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+/* ---------- Counters ---------- */
+.counters {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0.75rem 0 1rem;
+  color: var(--muted);
+}
+
+/* Counter states (over comes last so red wins when both apply) */
+.warning {
+  color: var(--warning);
+}
+
+.over {
+  color: var(--over);
+  font-weight: bold;
+}
+
+/* ---------- Buttons ---------- */
+button {
+  padding: 0.5rem 1.1rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--button-text);
+  background-color: var(--primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+  section {
+    padding: 1rem;
+  }
+
+  .counters {
+    flex-direction: column;
+    gap: 0;
+  }
+}
