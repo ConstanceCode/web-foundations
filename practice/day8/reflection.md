@@ -1,0 +1,7 @@
+# Reflection
+
+**The most difficult concept.** The hardest idea for me was concurrency: how two requests can both read "seat available" and both succeed. At first I only thought about one user at a time, so my designs looked correct but were not. I overcame it by slowing down and tracing two users through the same steps, line by line, and then rewriting the "check, then update" logic as a single atomic conditional update inside a transaction. Learning that a UNIQUE constraint is a last line of defence that does not trust my application code made transactions and constraints finally click.
+
+**What I would improve in my capstone.** The feedback I received said my capstone handled the normal case well but did not explain what happens under heavy load or failure. I would add numbers, such as requests per second at peak, and show clearly how the design copes: caching the read-heavy pages, a queue to control the rush, and idempotent payments so retries do not charge twice. I would also state my trade-offs explicitly instead of leaving them implied, and draw a clearer architecture diagram with a sentence for every component.
+
+**What I will learn next.** I want to go deeper into distributed systems: replication, consensus, and what happens when parts of a system disagree. I also want to practise load testing so I can check my estimates against real measurements instead of guesses. After that, I plan to learn observability (metrics, logs, alerts) so I can notice problems before users do, and to keep building small projects that apply each idea.
