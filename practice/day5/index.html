@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Directory</title>
+    <script src="users.js" defer></script>
+    <style>
+      body {
+        max-width: 640px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        line-height: 1.5;
+      }
+      #status.loading { color: #92400e; }
+      #status.success { color: #166534; }
+      #status.error { color: #b91c1c; font-weight: bold; }
+      #users-list { list-style: none; padding: 0; }
+      #users-list li { border: 1px solid #d1d5db; border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 0.75rem; }
+      #users-list h2 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+      #users-list p { margin: 0; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>User Directory</h1>
+    </header>
+
+    <main>
+      <section>
+        <button id="load-users" type="button">Load users</button>
+      </section>
+
+      <section>
+        <label for="filter-input">Filter by name</label>
+        <input type="text" id="filter-input" placeholder="Type a name..." autocomplete="off" />
+        <p id="status" aria-live="polite"></p>
+        <ul id="users-list"></ul>
+      </section>
+    </main>
+  </body>
+</html>
